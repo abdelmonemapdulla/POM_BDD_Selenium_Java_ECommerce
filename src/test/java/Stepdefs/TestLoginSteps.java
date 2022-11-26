@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
+
 public class TestLoginSteps {
     //Variables
     private WebDriver driver;
@@ -27,7 +29,7 @@ public class TestLoginSteps {
         homePage.clickOnLoginTab();
     }
     @And("user enters his login credentials")
-    public void user_enters_his_login_credentials() {
+    public void user_enters_his_login_credentials() throws IOException {
         loginPage = new LoginPageObjectModel(driver);
         loginPage.enterEmail();
         loginPage.enterPassword();

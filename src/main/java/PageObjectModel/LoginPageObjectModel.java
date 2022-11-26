@@ -3,6 +3,11 @@ package PageObjectModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
 public class LoginPageObjectModel {
     //Variables
     private WebDriver driver;
@@ -16,8 +21,18 @@ public class LoginPageObjectModel {
     private By LoginButton(){return By.xpath("//button[@class='button-1 login-button']");}
 
     //Methods
-    public void enterEmail(){driver.findElement(EmailInputField()).sendKeys("abdelmonemapdulla@gmail.com");}
-    public void enterPassword(){driver.findElement(PasswordInputField()).sendKeys("Test123");}
+    public void enterEmail() throws IOException {
+        Properties loginInfo = new Properties();
+        FileReader reader=new FileReader("config/loginInfo.properties");
+        loginInfo.load(reader);
+        loginInfo.getProperty("Email");
+        driver.findElement(EmailInputField()).sendKeys(loginInfo.getProperty("Email"));}
+    public void enterPassword() throws IOException {
+        Properties loginInfo = new Properties();
+        FileReader reader=new FileReader("config/loginInfo.properties");
+        loginInfo.load(reader);
+        loginInfo.getProperty("Password");
+        driver.findElement(PasswordInputField()).sendKeys(loginInfo.getProperty("Password"));}
     public void clickOnLoginButton(){driver.findElement(LoginButton()).click();}
 
 }
