@@ -43,6 +43,7 @@ public class TestLoginSteps {
     public void user_logged_in_successfully() {
         homePage = new HomePageObjectModel(driver);
         Assert.assertEquals(true,homePage.MyAccountDisplay());
+        driver.quit();
     }
 
 }
