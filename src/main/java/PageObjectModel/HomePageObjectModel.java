@@ -12,11 +12,11 @@ public class HomePageObjectModel {
 
     //Locators
     private By loginTab(){return By.cssSelector(".ico-login");}
-    private By MyAccountTab(){return By.linkText("My account");}
+    private By MyAccountTab(){return By.cssSelector(".ico-account");}
 
     //Methods
     public void clickOnLoginTab(){driver.findElement(loginTab()).click();}
-    public boolean MyAccountDisplay(){return (driver.findElement(MyAccountTab()).isEnabled());}
+    public boolean DisplayMyAccount(){return (driver.findElement(MyAccountTab()).isDisplayed());}
 
 
 

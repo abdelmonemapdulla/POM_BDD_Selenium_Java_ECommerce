@@ -9,6 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class TestLoginSteps {
     //Variables
     private WebDriver driver;
@@ -42,8 +45,7 @@ public class TestLoginSteps {
     @Then("user logged in successfully")
     public void user_logged_in_successfully() {
         homePage = new HomePageObjectModel(driver);
-        Assert.assertEquals(true,homePage.MyAccountDisplay());
-        driver.quit();
+        Assert.assertTrue(homePage.DisplayMyAccount());
     }
 
 }
